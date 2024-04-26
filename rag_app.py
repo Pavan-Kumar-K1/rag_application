@@ -7,6 +7,9 @@ from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTempla
 from langchain_google_genai import ChatGoogleGenerativeAI
 import streamlit as st
 
+with open('api_key.txt') as f:
+    api_key = f.read()
+
 loader = PyPDFLoader("leavenocontext.pdf")
 data = loader.load_and_split()
 text_splitter = NLTKTextSplitter(chunk_size=500, chunk_overlap=100)
