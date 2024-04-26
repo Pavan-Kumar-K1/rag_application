@@ -15,9 +15,9 @@ chunks = text_splitter.split_documents(data)
 print(type(chunks[0]))
 
 
-chat_model = ChatGoogleGenerativeAI(google_api_key="AIzaSyC2Bztff9XtDCDrCJfMJ8py9JaT8VkwSlY", 
+chat_model = ChatGoogleGenerativeAI(google_api_key=api_key, 
                                    model="gemini-1.5-pro-latest")
-embedding_model = GoogleGenerativeAIEmbeddings(google_api_key="AIzaSyC2Bztff9XtDCDrCJfMJ8py9JaT8VkwSlY", 
+embedding_model = GoogleGenerativeAIEmbeddings(google_api_key=api_key, 
                                                model="models/embedding-001")
 
 db = Chroma.from_documents(chunks, embedding_model, persist_directory="./chroma_db_")
